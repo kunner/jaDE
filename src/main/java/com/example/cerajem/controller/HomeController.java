@@ -56,7 +56,7 @@ public class HomeController {
 			//HttpClient httpClient = HttpClient.create().secure(t -> t.sslContext(sslContext));
 
 			WebClient client = WebClient.builder()
-			  .baseUrl("https://cerahr.ceragem.com:9950")
+			  .baseUrl("https://세라젬 HR 접속 BASEURL 주소")
 			  .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8_VALUE)
 			  .build();
 		
