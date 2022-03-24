@@ -88,8 +88,7 @@ public class Context {
             in.close();
         
             String json = response.toString();
-            System.out.println("REQUEST:\r\n" + jsonStr);
-            //System.out.println("RESPONSE:"+json);
+            System.out.println("RESPONSE:"+json);
         }
     }
 }
