@@ -79,7 +79,7 @@ public class HomeController {
 				response = client.post()
 				    .uri("/restful")
 				    .accept(MediaType.APPLICATION_JSON)
-				    .body(Mono.just(), PostJadeDTO.class)
+				    .body(Mono.just(new PostJadeDTO("REFwWALk0KnxM8S55r5wAA==", "ZjH2yGNkSXC63TMeuSX5Hw==", "1MDHLqogOWJqzU7DtAspAg==", new PostJadeNestDTO("2011040", "20220302"))), PostJadeDTO.class)
 				    .retrieve()
 				    .bodyToMono(String.class)
 				    .block();
