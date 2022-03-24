@@ -67,13 +67,16 @@ public class HomeController {
 					    .retrieve()
 					    .bodyToMono(String.class)
 					    .block();*/
+				/*
+				빌드 오류로 일단 막아 놓았습니다 향후 관련 작업 진행하시면 됩니다. - Kunner
+
 				response = client.post()
 				    .uri("/restful")
 				    .accept(MediaType.APPLICATION_JSON)
 				    .body(Mono.just(), PostJadeDTO.class)
 				    .retrieve()
 				    .bodyToMono(String.class)
-				    .block();
+				    .block();*/
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
