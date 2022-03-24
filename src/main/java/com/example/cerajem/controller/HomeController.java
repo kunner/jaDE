@@ -36,15 +36,6 @@ import reactor.netty.http.client.HttpClient;
 
 @Controller
 public class HomeController {
-	
-	@GetMapping("/web/community/{to}")
-	public String community(@PathVariable("to") String to) {
-		return "/web/community/" + to;
-	}
-	@GetMapping("/web/main/{to}")
-	public String main(@PathVariable("to") String to) {
-		return "/web/main/" + to;
-	}
 
 	@GetMapping("/jade")
 	@ResponseBody
@@ -88,42 +79,6 @@ public class HomeController {
 		}
 		
 		return response;
-	}
-	@GetMapping("/sera")
-	@ResponseBody
-	public String httpClientSera() {
-		
-		WebClient client = WebClient.builder()
-				  .baseUrl("https://cerachkrest-dev.omnifit.co.kr")
-				  .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8_VALUE)
-				  .build();
-		
-		//.defaultCookie("cookieKey", "cookieValue")
-		
-		//.header("Authorization", "Bearer MY_SECRET_TOKEN")
-		//(USER_NM=8mUd1hPyMMZXxxk4KWFuOw%3D%3D, BIRTH=tkiV2AJZP4zgKExUJNNHSw==, PHONE=BK4USiTqzkuZANioOgRLAA%3D%3D)
-		String response = "";
-		try {
-			response = client.post()
-				    .uri("/api/V2/measure_info")
-				    .accept(MediaType.APPLICATION_JSON)
-				    .body(Mono.just(new PostCeraCheckDTO("8mUd1hPyMMZXxxk4KWFuOw==", "tkiV2AJZP4zgKExUJNNHSw==", "BK4USiTqzkuZANioOgRLAA==")), PostCeraCheckDTO.class)
-				    .retrieve()
-				    .bodyToMono(String.class)
-				    .block();
-		} catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-		
-		return response;
-	}
-
-	
-	@PostMapping("/api/t1")
-	@ResponseBody
-	public String t1() {
-		return "{\"tag\": \"스몰토크\", \"title\": \"부산출장 가는데, 들릴 만한 곳 추천 부탁드립니다.\","
-				+ "\"name\": \"제임스\", \"date\": \"2022-03-01T03:23:00\"}";
 	}
 	
 }
